@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>เว็ปบอกรักแฟน 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Itim&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(120deg, #ffb6b9, #fae3d9, #bbded6, #8ac6d1);
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Itim', 'Kanit', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .love-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 30px;
+      box-shadow: 0 6px 32px 0 rgba(0,0,0,0.10);
+      padding: 56px 36px 46px 36px;
+      max-width: 420px;
+      width: 90vw;
+      text-align: center;
+      margin-top: 70px;
+      animation: fadeIn 2s;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .love-card:hover {
+      transform: translateY(-8px) scale(1.035) rotate(-2deg);
+      box-shadow: 0 12px 36px 0 #e7548080, 0 2px 8px #ffa3b0aa;
+      background: rgba(255,255,255,1);
+    }
+    h1 {
+      color: #e75480;
+      font-size: 2.2em;
+      margin-bottom: 0.3em;
+      font-family: 'Kanit', cursive, sans-serif;
+    }
+    p {
+      color: #333;
+      font-size: 1.2em;
+      margin: 24px 0 12px 0;
+      min-height: 50px;
+    }
+    .heart {
+      color: #e75480;
+      font-size: 3.2em;
+      animation: heartbeat 1.2s infinite;
+      margin-bottom: 12px;
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+    .love-card:hover .heart {
+      transform: scale(1.18) rotate(15deg);
+      filter: drop-shadow(0 0 12px #e75480b2);
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1);}
+      10%, 30%, 50%, 70%, 90% { transform: scale(1.11);}
+      20%, 40%, 60%, 80% { transform: scale(0.96);}
+    }
+    @keyframes fadeIn {
+      from { opacity: 0;}
+      to { opacity: 1;}
+    }
+    button {
+      background: linear-gradient(90deg,#e75480,#ffb6b9,#e75480);
+      border: none;
+      color: white;
+      padding: 14px 36px;
+      border-radius: 40px;
+      font-size: 1.1em;
+      cursor: pointer;
+      margin-top: 22px;
+      font-family: 'Kanit', cursive, sans-serif;
+      font-weight: bold;
+      transition: background 0.26s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 12px #e7548090;
+      outline: none;
+      letter-spacing: 1px;
+    }
+    button:hover, button:focus {
+      background: linear-gradient(90deg,#e75480,#e75480);
+      transform: scale(1.08) rotate(-2deg);
+      box-shadow: 0 6px 32px #e7548090, 0 2px 8px #ffb6b9cc;
+      filter: brightness(1.05);
+    }
+
+    /* Floating hearts */
+    .floating-heart {
+      position: fixed;
+      bottom: -30px;
+      color: #e75480cc;
+      font-size: 2.2em;
+      animation: floatHeart 8s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      90% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.3);
+        opacity: 0;
+      }
+    }
+
+    /* Background image behind the card */
+    .bg-image-behind {
+      position: absolute;
+      left: 50%;
+      top: 60%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      opacity: 0.18;
+      width: 380px;
+      min-width: 200px;
+      pointer-events: none;
+      filter: blur(0.5px);
+    }
+    /* Show foreground image only when message is last */
+    .love-img-foreground {
+      display: none;
+      margin: 18px auto 0 auto;
+      width: 180px;
+      max-width: 90vw;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px #e7548090;
+      border: 3px solid #fff0f3;
+      animation: fadeIn 1.3s;
+    }
+    .love-img-foreground.show {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      .love-card {
+        padding: 32px 8vw 24px 8vw;
+        margin-top: 22vw;
+        max-width: 98vw;
+      }
+      h1 {
+        font-size: 1.3em;
+      }
+      .heart {
+        font-size: 2em;
+      }
+      .bg-image-behind {
+        width: 70vw;
+        min-width: unset;
+        top: 65%;
+      }
+      .love-img-foreground {
+        width: 65vw;
+      }
+      button {
+        font-size: 1em;
+        padding: 11px 18vw;
+      }
+      p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating hearts -->
+  <span class="floating-heart" style="left:12%;">💖</span>
+  <span class="floating-heart" style="left:28%; font-size:2.5em; animation-delay:1.7s;">💗</span>
+  <span class="floating-heart" style="left:45%; font-size:1.8em; animation-delay:3.2s;">💓</span>
+  <span class="floating-heart" style="left:59%; font-size:2.9em; animation-delay:0.8s;">💞</span>
+  <span class="floating-heart" style="left:73%; font-size:2.1em; animation-delay:2.7s;">💘</span>
+  <span class="floating-heart" style="left:86%; font-size:2.3em; animation-delay:3.9s;">💝</span>
+
+  <!-- Background image behind card (jpg) -->
+  <img class="bg-image-behind" src="https://i.postimg.cc/SNV5RK0f/david-martinez-and-lucy.gif" alt="love bg">
+
+  <div class="love-card">
+    <div class="heart">💖</div>
+    <h1>รักแฟนที่สุดในโลก!</h1>
+    <p id="loveText">ขอบคุณที่อยู่ข้างกันเสมอ<br>รักเธอนะ จุ๊บๆ 🥰</p>
+    <!-- JPG รูป foreground -->
+    <img id="loveImg" class="love-img-foreground" src="https://i.postimg.cc/SNV5RK0f/david-martinez-and-lucy.gif" alt="love you">
+    <button id="loveBtn" onclick="showRandomLove()">คลิกดูคำบอกรัก</button>
+  </div>
+  <script>
+    const loveTexts = [
+      "รักแฟนที่สุดในจักรวาลนี้เลย 💖",
+      "ขอบคุณที่อยู่เคียงข้างกันเสมอ รักเธอนะ 🥰",
+      "คิดถึงแฟนทุกวันเลยนะ จุ๊บๆ 😘",
+      "เธอคือคนพิเศษของเค้าเสมอ 💕",
+      "ขอให้เรารักกันแบบนี้ตลอดไปนะ ❤️",
+      "ไม่มีใครมาแทนที่เธอได้เลย รักที่สุด!",
+      "หัวใจนี้เป็นของเธอคนเดียว 😍",
+      "อยู่กับเธอแล้วมีความสุขที่สุดในโลก",
+      "แฟนคือกำลังใจที่ดีที่สุดของเค้า 🫶",
+      "เค้าสัญญาว่าจะรักและดูแลแฟนตลอดไป"
+    ];
+    // รูปเฉพาะสำหรับข้อความสุดท้าย
+    const lastTextIndex = loveTexts.length - 1;
+    const loveImg = document.getElementById('loveImg');
+    const loveBtn = document.getElementById('loveBtn');
+    function showRandomLove() {
+      const idx = Math.floor(Math.random() * loveTexts.length);
+      document.getElementById('loveText').textContent = loveTexts[idx];
+      if (idx === lastTextIndex) {
+        loveImg.classList.add('show');
+        // ไปหน้า gallery หลัง delay สั้นๆ
+        setTimeout(function(){
+          window.location.href = "gallery.html";
+        }, 1200); // โชว์รูป 1.2 วินาทีแล้วเด้งไป
+      } else {
+        loveImg.classList.remove('show');
+      }
+    }
+    // กรณีเปิดหน้าเว็บมา ถ้า default เป็นข้อความสุดท้าย ให้โชว์รูปเลย
+    window.onload = function() {
+      const text = document.getElementById('loveText').textContent;
+      if (text.includes("สัญญาว่าจะรักและดูแลแฟนตลอดไป")) {
+        loveImg.classList.add('show');
+      }
+    };
+  </script>
+</body>
+</html>
